@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables from the .env file
+require("dotenv").config(); // Load environment variables from the .env file
 const express = require("express");
 const { createServer } = require("node:http");
 const { join } = require("node:path");
@@ -9,7 +9,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: `http://${process.env.SPECIALEVENTSORIGIN}`,
+        origin: process.env.SPECIALEVENTSORIGIN,
     },
 });
 
@@ -32,6 +32,6 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(3000, () => {
-    console.log("server running at http://localhost:3000");
+server.listen(80, () => {
+    console.log("server running");
 });
