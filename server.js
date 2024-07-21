@@ -30,6 +30,11 @@ io.on("connection", (socket) => {
         // we will broadcast all clients to refresh
         io.emit("images-available", "refresh");
     });
+
+    socket.on("message", (data) => {
+        //custom debug for safari :(
+        console.log(`Received message from ${socket.id}:`, data);
+    });
 });
 
 server.listen(80, () => {
