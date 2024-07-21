@@ -4,7 +4,11 @@ const { createServer } = require("node:http");
 const { join } = require("node:path");
 const { Server } = require("socket.io");
 
+const cors = require('cors');
 const app = express();
+
+app.use(cors({ origin: process.env.SPECIALEVENTSORIGIN})); // Replace with your actual origin
+
 const server = createServer(app);
 
 const io = new Server(server, {
