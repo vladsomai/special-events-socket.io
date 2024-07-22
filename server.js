@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 const cors = require('cors');
 const app = express();
 
-app.use(cors({ origin: process.env.SPECIALEVENTSORIGIN})); // Replace with your actual origin
+app.use(cors({ origin: process.env.SPECIALEVENTSORIGIN})); 
 
 const server = createServer(app);
 
